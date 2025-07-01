@@ -1,6 +1,7 @@
 package com.openclassrooms.notes.service
 
 import com.openclassrooms.notes.model.Note
+import com.openclassrooms.notes.repository.NotesRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -29,16 +30,5 @@ class LocalNotesApiService : NotesApiService {
             Note("Passez du temps avec vos proches", "Ils sont les plus importants dans votre vie. Passez du temps avec vos proches et montrez-leur à quel point vous les aimez. Ils sont votre famille et vos amis."),
             Note("Risez et amusez-vous.", "La vie est trop courte pour être sérieuse tout le temps. Riez et amusez-vous. Passez du temps à faire les choses que vous aimez."),
         )
-    }
-}
-
-@Module
-@InstallIn(SingletonComponent::class)
-object LocalNotesApiModule {
-
-    @Provides
-    @Singleton
-    fun provideNotesApiService(): NotesApiService {
-        return LocalNotesApiService()
     }
 }
